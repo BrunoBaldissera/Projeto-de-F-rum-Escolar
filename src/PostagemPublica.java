@@ -7,8 +7,8 @@ public class PostagemPublica extends Mensagem{
 
 	////////////////////////////////
 
-	public PostagemPublica(){
-		super();
+	public PostagemPublica(Sistema s){
+		super(s);
 		this.tags = new String[50];
 		this.reacoes = 0;
 	}
@@ -27,11 +27,14 @@ public class PostagemPublica extends Mensagem{
 		this.reacoes = reacoes;
 	}
 	
-	public PostagemPublica criaPostagemPublica(){
+	public PostagemPublica criaPostagemPublica(String autor, Sistema s){
 		Scanner sc = new Scanner(System.in);
-		PostagemPublica p = new PostagemPublica();
+		PostagemPublica p = new PostagemPublica(s);
 		
-		p.setAutor(sc.nextLine());
+		
+		p.setAutor(autor);
+		
+		System.out.println("Insira aqui o texto");
 		p.setCorpo_texto(sc.nextLine());
 		p.setAvaliacao('p');
 		
@@ -39,12 +42,11 @@ public class PostagemPublica extends Mensagem{
 		return p;
 	}
 	
-	//colocar na classe usuario
-	public void Comenta(PostagemPublica original){
-		Comentario novo = criaComentario();
-		novo.setCamada(1);
+	public void submetePostagem(String autor, Sistema s){
+		PostagemPublica p = new PostagemPublica(s);
+		p = p.criaPostagemPublica(autor, s);
 		
-		insereComentario(novo);
+		this.getSistema().getPendentes().add(p);
 	}
 	
 	public static void main(String[] args) {

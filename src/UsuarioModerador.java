@@ -1,26 +1,16 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UsuarioModerador extends Usuario{
 	public String cargo;
-	private ArrayList<Mensagem> pendentes;
+	public Sistema sistema;
 
 	///////////////////////////////
 	
-	public UsuarioModerador(){
-		super();
-		Scanner sc= new Scanner(System.in);
+	public UsuarioModerador(Sistema s, Scanner sc){
+		super(s, sc);
+		System.out.println("Insira seu cargo como moderador(a)");
 		this.cargo = sc.nextLine();
-		sc.close();
-		
-		this.pendentes = new ArrayList<Mensagem>();
-	}
-	
-	public ArrayList<Mensagem> getPendentes() {
-		return pendentes;
-	}
-	public void setPendentes(ArrayList<Mensagem> pendentes) {
-		this.pendentes = pendentes;
+		this.sistema.moderadores.add(this);
 	}
 	
 	public String getCargo() {
@@ -31,9 +21,19 @@ public class UsuarioModerador extends Usuario{
 		this.cargo = cargo;
 	}
 	
-	public void classificaMensagem(Mensagem m){
+	public void classificaMensagem(Mensagem m) {
 		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Insira 'a' para aprovar ou 'r' para reprovar");
 		m.setAvaliacao(sc.next().charAt(0));
+		
+		if (m.getAvaliacao() == 'a'){
+			this.sistema.aprovaMensagem(m);
+		}
+		if (m.getAvaliacao() == 'r'){
+			this.sistema.reprovaMensagem(m);
+		}
+		
 		sc.close();
 	}
 	
