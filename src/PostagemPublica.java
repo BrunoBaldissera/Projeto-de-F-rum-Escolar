@@ -1,9 +1,17 @@
+import java.util.Scanner;
 
 public class PostagemPublica extends Mensagem{
 	
 	private String[] tags;	//cada posicao e uma palavras-chave da postagem (e.g. Desabafo)
 	private int reacoes;	//curtidas
-	private Comentario[] comentarios;	//comentarios da postagem
+
+	////////////////////////////////
+
+	public PostagemPublica(){
+		super();
+		this.tags = new String[50];
+		this.reacoes = 0;
+	}
 	
 	public String[] getTags() {
 		return tags;
@@ -18,14 +26,26 @@ public class PostagemPublica extends Mensagem{
 	public void setReacoes(int reacoes) {
 		this.reacoes = reacoes;
 	}
-
-	public Comentario[] getComentarios() {
-		return comentarios;
+	
+	public PostagemPublica criaPostagemPublica(){
+		Scanner sc = new Scanner(System.in);
+		PostagemPublica p = new PostagemPublica();
+		
+		p.setAutor(sc.nextLine());
+		p.setCorpo_texto(sc.nextLine());
+		p.setAvaliacao('p');
+		
+		sc.close();
+		return p;
 	}
-	public void setComentarios(Comentario[] comentarios) {
-		this.comentarios = comentarios;
+	
+	//colocar na classe usuario
+	public void Comenta(PostagemPublica original){
+		Comentario novo = criaComentario();
+		novo.setCamada(1);
+		
+		insereComentario(novo);
 	}
-
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
