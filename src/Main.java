@@ -1,14 +1,20 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 	
 		
 		Sistema s = new Sistema();
 		char op;
 		Scanner sc = new Scanner(System.in);
 		
+		s.leUsuarios();
+		s.imprimeUsuarios();
+		
+		s.criaMensagensAutomaticas();
+		s.imprimeMensagensAutomaticas();
 
 		do{
 			System.out.println("Seja bem-vindo(a) ao fórum! Por favor insira seus dados para continuar (para sair pressione 'x')");
@@ -31,8 +37,8 @@ public class Main {
 					System.out.println("Você é moderador(a)?\n Se sim pressione 's', caso contrário 'n'");
 					op = sc.nextLine().charAt(0);
 					
-					if (op == 's') u = new UsuarioModerador(s, sc);
-					else u = new Usuario(s, sc);
+					//if (op == 's') u = new UsuarioModerador(s, sc);
+					//else u = new Usuario(s, sc);
 				}
 				continue;
 			}

@@ -3,7 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Scanner;
+import java.util.Map.Entry;
 
 public class Sistema {
 	public ArrayList<Mensagem> postagens;
@@ -96,29 +96,46 @@ public class Sistema {
 		return null;
 	}
 	
-	public void leCsv(Scanner sc) throws IOException{
+	public void leUsuarios() throws IOException{
 		BufferedReader reader = new BufferedReader(new FileReader("src/usuarios.csv"));
 		String buffer;
 		String[] campos = new String[3];
-		while((buffer = reader.readLine())!=null){
+		while((buffer = reader.readLine())!=null && buffer.length() > 2){
 			campos = buffer.split(";");
 			new Usuario(this, campos[0], campos[1]);
-			if (campos[3] != null){
+			if (campos.length > 2){
 				new UsuarioModerador(this, campos[0], campos[1], campos[2]);
 			}
 		}
 		reader.close();
 	}
 	
-	public void criaMensagens() throws IOException{
+	public void imprimeUsuarios(){
+		System.out.println("Usuarios comuns:");
+		for(Usuario u : this.usuarios){
+			System.out.println(u.getNome() + ", e senha: " + u.getId());
+		}
+		System.out.println("Usuarios moderadores:");
+		for(UsuarioModerador um : this.moderadores){
+			System.out.println(um.getNome() + ", senha: " + um.getId() + ", cargo: " + um.getCargo());
+		}
+	}
+	
+	public void criaMensagensAutomaticas() throws IOException{
 		BufferedReader reader = new BufferedReader(new FileReader("src/tags.csv"));
 		String buffer;
 		String[] campos = new String[2];
-		while((buffer = reader.readLine())!=null){
+		while((buffer = reader.readLine())!=null && buffer.length() > 2){
 			campos = buffer.split(";");
 			this.mensagensAutomaticas.put(campos[0], campos[1]);
 		}
 		reader.close();
+	}
+	
+	public void imprimeMensagensAutomaticas(){
+		for(Entry<String, String> i : this.mensagensAutomaticas.entrySet()){
+			System.out.println(i.getKey() + ", e resposta e: " + i.getValue());
+		}
 	}
 	
 	public static void main(String[] args) {
