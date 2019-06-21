@@ -5,10 +5,10 @@ public class UsuarioModerador extends Usuario{
 
 	///////////////////////////////
 	
-	public UsuarioModerador(Sistema s, Scanner sc){
-		super(s, sc);
-		System.out.println("Insira seu cargo como moderador(a)");
-		this.cargo = sc.nextLine();
+	public UsuarioModerador(Sistema s, String nome, String id, String cargo){
+		super(s, nome, id);
+		this.sistema.getUsuarios().remove(this);
+		this.cargo = cargo;
 		this.sistema.moderadores.add(this);
 	}
 	

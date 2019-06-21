@@ -1,3 +1,4 @@
+import java.util.Map;
 import java.util.Scanner;
 
 public class PostagemPublica extends Mensagem{
@@ -25,8 +26,8 @@ public class PostagemPublica extends Mensagem{
 	}
 	public void setReacoes(int reacoes) {
 		this.reacoes = reacoes;
-	}
 	
+	}
 	public void criaPostagemPublica(String autor, Sistema s, Scanner sc){
 		
 		this.setAutor(autor);
@@ -39,10 +40,19 @@ public class PostagemPublica extends Mensagem{
 		
 	}
 	
+	public void enviaMensagemAutomatica(){
+		for(Map.Entry<String, String> i : this.getSistema().getMensagensAutomaticas().entrySet()){
+			if(this.getCorpo_texto().contains(i.getKey())){
+				System.out.println(i.getValue());
+			}
+		}
+	}
+	
 	public void submetePostagem(String autor, Sistema s, Scanner sc){
 		PostagemPublica p = new PostagemPublica(s);
 		p.criaPostagemPublica(autor, s, sc);
 		
+		p.enviaMensagemAutomatica();
 		this.getSistema().getPendentes().add(p);
 	}
 	

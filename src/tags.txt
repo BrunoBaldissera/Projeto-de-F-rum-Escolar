@@ -1,0 +1,50 @@
+suicidio|Nao se desespere, mantenha a calma
+suicidar|Nao se desespere, mantenha a calma
+matar|Nao desista. Geralmente e a ultima chave no chaveiro que abre a porta.
+chorar|Nao se desespere, mantenha a calma
+machucar|Nao se desespere, mantenha a calma
+cortar|Nao se desespere, mantenha a calma
+ferir|Nao se desespere, mantenha a calma
+vida|Nao se desespere, mantenha a calma
+sofrer|Nao se desespere, mantenha a calma
+odeio|Nao se desespere, mantenha a calma
+morrer|Nao se desespere, mantenha a calma
+esganar|Nao se desespere, mantenha a calma
+desespero|Nao se desespere, mantenha a calma
+desesperar|Nao se desespere, mantenha a calma
+panico|Nao se desespere, mantenha a calma
+ansiedade|Nao se desespere, mantenha a calma
+depressao|Nao se desespere, mantenha a calma
+overdose|Nao se desespere, mantenha a calma
+apanhar|Nao se desespere, mantenha a calma
+sofrer|Nao se desespere, mantenha a calma
+bater|Nao se desespere, mantenha a calma
+bate|Nao se desespere, mantenha a calma
+xingar|Nao se desespere, mantenha a calma
+abusar|Nao se desespere, mantenha a calma
+abuso|Nao se desespere, mantenha a calma
+vergonha|Nao se desespere, mantenha a calma
+humilhacao|Nao se desespere, mantenha a calma
+triste|Nao se desespere, mantenha a calma
+tristeza|Nao se desespere, mantenha a calma
+decepcionado|Nao se desespere, mantenha a calma
+humilhado|Nao se desespere, mantenha a calma
+sofrimento|Nao se desespere, mantenha a calma
+dor|Nao se desespere, mantenha a calma
+desisto|Nao se desespere, mantenha a calma
+desistir|Nao se desespere, mantenha a calma
+vazio|Nao se desespere, mantenha a calma
+problema|Nao se desespere, mantenha a calma
+problemas|Nao se desespere, mantenha a calma
+abandono|Voce nao esta sozinho!
+abandonado|Voce nao esta sozinho!
+sozinho|Voce nao esta sozinho!
+apoio|Voce nao esta sozinho!
+ausencia|Voce nao esta sozinho!
+assolado|Nao se desespere, mantenha a calma
+assombrado|Nao se desespere, mantenha a calma
+assombracao|Nao se desespere, mantenha a calma
+algoz|Nao se desespere, mantenha a calma
+perseguido|Nao se desespere, mantenha a calma
+perseguicao|Nao se desespere, mantenha a calma
+tormento|Nao se desespere, mantenha a calma

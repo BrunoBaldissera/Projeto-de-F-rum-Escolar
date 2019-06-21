@@ -1,9 +1,15 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
 
 public class Sistema {
 	public ArrayList<Mensagem> postagens;
 	public ArrayList<Usuario> usuarios;
 	public ArrayList<UsuarioModerador> moderadores;
+	public HashMap<String, String> mensagensAutomaticas;
 	
 	private ArrayList<Mensagem> pendentes;
 	/////////////////////////////////////////////////
@@ -13,6 +19,15 @@ public class Sistema {
 		this.usuarios = new ArrayList<Usuario>();
 		this.moderadores = new ArrayList<UsuarioModerador>();
 		this.pendentes = new ArrayList<Mensagem>();
+		this.mensagensAutomaticas = new HashMap<String, String>();
+	}
+
+	public HashMap<String, String> getMensagensAutomaticas() {
+		return mensagensAutomaticas;
+	}
+
+	public void setMensagensAutomaticas(HashMap<String, String> mensagensAutomaticas) {
+		this.mensagensAutomaticas = mensagensAutomaticas;
 	}
 
 	public ArrayList<Usuario> getUsuarios() {
@@ -79,6 +94,20 @@ public class Sistema {
 			}
 		}
 		return null;
+	}
+	
+	public void leCsv(Sistema s, Scanner sc) throws IOException{
+		BufferedReader reader = new BufferedReader(new FileReader("src/usuarios.csv"));
+		String buffer;
+		String[] campos = new String[3];
+		while((buffer = reader.readLine())!=null){
+			campos = buffer.split(";");
+			new Usuario(s, campos[0], campos[1]);
+			if (campos[3] != null){
+				new UsuarioModerador(s, campos[0], campos[1], campos[2]);
+			}
+		}
+		reader.close();
 	}
 	
 	public static void main(String[] args) {

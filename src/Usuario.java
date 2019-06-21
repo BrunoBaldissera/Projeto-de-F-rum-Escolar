@@ -8,12 +8,9 @@ public class Usuario{
 	
 	//////////////////////////////
 	
-	public Usuario(Sistema s, Scanner sc){
-		System.out.println("Insira aqui seu nome de usuário");
-		this.nome = sc.nextLine();
-
-		System.out.println("Insira aqui sua senha");
-		this.id = sc.nextLine();
+	public Usuario(Sistema s, String nome, String id){
+		this.nome = nome;
+		this.id = id;
 		
 		this.cred_atividade = 0;
 		this.sistema = s;
@@ -55,10 +52,7 @@ public class Usuario{
 		original.insereComentario(novo);
 	}
 	
-	public Mensagem escolheMensagem(Scanner sc){
-		
-		System.out.println("ESSE BLOCO DE CODIGO RODOU");
-		
+	public Mensagem escolheMensagem(Scanner sc){		
 		int cont = 1;
 		char esc;
 		System.out.println("\t//////////////////////////////");
