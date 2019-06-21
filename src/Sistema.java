@@ -96,16 +96,27 @@ public class Sistema {
 		return null;
 	}
 	
-	public void leCsv(Sistema s, Scanner sc) throws IOException{
+	public void leCsv(Scanner sc) throws IOException{
 		BufferedReader reader = new BufferedReader(new FileReader("src/usuarios.csv"));
 		String buffer;
 		String[] campos = new String[3];
 		while((buffer = reader.readLine())!=null){
 			campos = buffer.split(";");
-			new Usuario(s, campos[0], campos[1]);
+			new Usuario(this, campos[0], campos[1]);
 			if (campos[3] != null){
-				new UsuarioModerador(s, campos[0], campos[1], campos[2]);
+				new UsuarioModerador(this, campos[0], campos[1], campos[2]);
 			}
+		}
+		reader.close();
+	}
+	
+	public void criaMensagens() throws IOException{
+		BufferedReader reader = new BufferedReader(new FileReader("src/tags.csv"));
+		String buffer;
+		String[] campos = new String[2];
+		while((buffer = reader.readLine())!=null){
+			campos = buffer.split(";");
+			this.mensagensAutomaticas.put(campos[0], campos[1]);
 		}
 		reader.close();
 	}
