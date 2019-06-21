@@ -12,6 +12,7 @@ public class Sistema {
 		this.postagens = new ArrayList<Mensagem>();
 		this.usuarios = new ArrayList<Usuario>();
 		this.moderadores = new ArrayList<UsuarioModerador>();
+		this.pendentes = new ArrayList<Mensagem>();
 	}
 
 	public ArrayList<Usuario> getUsuarios() {
@@ -56,12 +57,19 @@ public class Sistema {
 	}
 
 	public void imprimePostagens(){
+		System.out.println("\t//////////////////////////////");
 		for(Mensagem i : this.postagens){
 			System.out.println(i.getAutor() + ":");
-			System.out.println(i.getCorpo_texto());
-
-			System.out.println("\n\n");
+			System.out.println("\t" + i.getCorpo_texto());
+			if (i instanceof PostagemPublica) System.out.println("\t" + ((PostagemPublica) i).getReacoes());
+			
+			System.out.println("\n");
+			for(Comentario j : i.getComentarios()){
+				System.out.println("\t" + j.getAutor() + ":");
+				System.out.println("\t\t" + j.getCorpo_texto());
+			}
 		}
+		System.out.println("\t//////////////////////////////");
 	}
 	
 	public Usuario estaNoSistema(String nome, String id){

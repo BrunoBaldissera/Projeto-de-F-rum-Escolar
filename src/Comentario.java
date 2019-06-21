@@ -15,22 +15,17 @@ public class Comentario extends Mensagem{
 	public int getCamada() {
 		return camada;
 	}
+	
 	public void setCamada(int camada) {
 		this.camada = camada;
 	}
 	
-	public Comentario criaComentario(String autor, Sistema s){
-		Scanner sc = new Scanner(System.in);
-		Comentario novo = new Comentario(s);
-		
-		novo.setAutor(autor);
+	public void criaComentario(String autor, Sistema s, Scanner sc){		
+		this.setAutor(autor);
 		
 		System.out.println("Insira aqui seu texto");
-		novo.setCorpo_texto(sc.nextLine());
-		novo.setAvaliacao('p');
-		
-		sc.close();
-		return novo;
+		this.setCorpo_texto(sc.nextLine());
+		this.setAvaliacao('p');
 	}
 	
 }

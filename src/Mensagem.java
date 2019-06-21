@@ -1,11 +1,9 @@
-import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Mensagem {
 	private String autor;	//quem escreveu a postagem, e igual a "anon" caso seja anonima
 	private String corpo_texto;	//texto da postagem
 	private Sistema sistema;
-	
 	
 	
 	private char avaliacao;	//char que representa a avaliacao do moderador, pode assumir 'p' (pendente), 'r' (reprovado), ou  'a' (aprovado)

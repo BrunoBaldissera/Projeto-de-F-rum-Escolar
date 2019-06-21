@@ -27,24 +27,21 @@ public class PostagemPublica extends Mensagem{
 		this.reacoes = reacoes;
 	}
 	
-	public PostagemPublica criaPostagemPublica(String autor, Sistema s){
-		Scanner sc = new Scanner(System.in);
-		PostagemPublica p = new PostagemPublica(s);
+	public void criaPostagemPublica(String autor, Sistema s, Scanner sc){
 		
-		
-		p.setAutor(autor);
+		this.setAutor(autor);
 		
 		System.out.println("Insira aqui o texto");
-		p.setCorpo_texto(sc.nextLine());
-		p.setAvaliacao('p');
+		String temp = sc.nextLine();
+		this.setCorpo_texto(temp);
 		
-		sc.close();
-		return p;
+		this.setAvaliacao('p');
+		
 	}
 	
-	public void submetePostagem(String autor, Sistema s){
+	public void submetePostagem(String autor, Sistema s, Scanner sc){
 		PostagemPublica p = new PostagemPublica(s);
-		p = p.criaPostagemPublica(autor, s);
+		p.criaPostagemPublica(autor, s, sc);
 		
 		this.getSistema().getPendentes().add(p);
 	}
