@@ -2,9 +2,8 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class PostagemPublica extends Mensagem{
-	
 	private String[] tags;	//cada posicao e uma palavras-chave da postagem (e.g. Desabafo)
-	private int reacoes;	//curtidas
+	public int reacoes;	//curtidas
 
 	////////////////////////////////
 

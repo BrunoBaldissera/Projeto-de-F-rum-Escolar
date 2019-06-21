@@ -75,8 +75,9 @@ public class Sistema {
 		System.out.println("\t//////////////////////////////");
 		for(Mensagem i : this.postagens){
 			System.out.println(i.getAutor() + ":");
+			System.out.println("\t" + i.getTitulo() + ":");
 			System.out.println("\t" + i.getCorpo_texto());
-			if (i instanceof PostagemPublica) System.out.println("\t" + ((PostagemPublica) i).getReacoes());
+			if (i instanceof PostagemPublica) System.out.println("\t+" + ((PostagemPublica) i).getReacoes());
 			
 			System.out.println("\n");
 			for(Comentario j : i.getComentarios()){
@@ -136,6 +137,22 @@ public class Sistema {
 		for(Entry<String, String> i : this.mensagensAutomaticas.entrySet()){
 			System.out.println(i.getKey() + ", e resposta e: " + i.getValue());
 		}
+	}
+	
+	public void criaPostagensArquivo() throws IOException{
+		BufferedReader reader = new BufferedReader(new FileReader("src/postagens.csv"));
+		String buffer;
+		String[] campos = new String[3];
+		while((buffer = reader.readLine())!=null && buffer.length() > 2){
+			campos = buffer.split(";");
+			PostagemPublica p = new PostagemPublica(this);
+			p.setAutor(campos[0]);
+			p.setTitulo(campos[1]);
+			p.setCorpo_texto(campos[2]);
+			
+			this.postagens.add(p);
+		}
+		reader.close();
 	}
 	
 	public static void main(String[] args) {

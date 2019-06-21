@@ -15,7 +15,10 @@ public class Main {
 		
 		s.criaMensagensAutomaticas();
 		s.imprimeMensagensAutomaticas();
-
+		
+		s.criaPostagensArquivo();
+		s.imprimePostagens();
+		
 		do{
 			System.out.println("Seja bem-vindo(a) ao fórum! Por favor insira seus dados para continuar (para sair pressione 'x')");
 			System.out.println("Nome de usuário:");

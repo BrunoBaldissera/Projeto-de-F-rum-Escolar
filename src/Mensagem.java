@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class Mensagem {
+	public String titulo;
 	private String autor;	//quem escreveu a postagem, e igual a "anon" caso seja anonima
 	private String corpo_texto;	//texto da postagem
 	private Sistema sistema;
@@ -26,6 +27,14 @@ public class Mensagem {
 		this.comentarios = comentarios;
 	}
 	
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
 	public Sistema getSistema() {
 		return sistema;
 	}
